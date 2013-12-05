@@ -1,0 +1,186 @@
+1                                                          The SAS System                            16:25 Tuesday, December 3, 2013
+
+1          ;*';*";*/;quit;run;
+2          OPTIONS PAGENO=MIN;
+3          %LET _CLIENTTASKLABEL='challenge001';
+4          %LET _CLIENTPROJECTPATH='';
+5          %LET _CLIENTPROJECTNAME='';
+6          %LET _SASPROGRAMFILE='H:\CHSE\ActiveProjects\Sandbox\CodingChallenges\Challenge001\challenge001.sas';
+7          
+8          ODS _ALL_ CLOSE;
+9          OPTIONS DEV=ACTIVEX;
+10         GOPTIONS XPIXELS=0 YPIXELS=0;
+11         FILENAME EGSR TEMP;
+12         ODS tagsets.sasreport13(ID=EGSR) FILE=EGSR STYLE=HtmlBlue
+12       ! STYLESHEET=(URL="file:///C:/Program%20Files/SASHome/SASEnterpriseGuide/5.1/Styles/HtmlBlue.css") NOGTITLE NOGFOOTNOTE
+12       ! GPATH=&sasworklocation ENCODING=UTF8 options(rolap="on");
+NOTE: Writing TAGSETS.SASREPORT13(EGSR) Body file: EGSR
+13         
+14         GOPTIONS ACCESSIBLE;
+15         /*==============================================================================
+16         CODING CHALLENGE #1: OLS
+17         
+18         From: John McConnell
+19         Sent: Tuesday, December 03, 2013 9:18 AM
+20         To: Aaron Mendelson; Benjamin Chan; Hyunjee Kim; Jonah Todd-Geddes; Lorie Jacob; Margaret Sarna-Wojcicki; Peter Graven;
+20       ! Ruth Rowland; Stephanie Renfro
+21         Subject: Developing programming examples for R, Stata, SAS
+22         
+23         Group
+24         
+25         Following up on our discussion last week, I propose the following exercise. I have tried to keep this very simple. We can
+25       !  get more involved if we think that would help. This is a baby step.
+26         
+27         Let’s have these people take the lead:
+28         
+29         Stata – Peter
+30         R – Stephanie
+31         SAS – Ben
+32         
+33         Let’s work off this directory
+34         X:\OHSU Shared\Restricted\OCHSER\PROJECTS\Code_Sharing
+35         Using the file “Inpatient_Claims_Sample_1.” (I have SAS, Stata, and R versions there).
+36         
+37         Please create a word document and a statistical code file (e.g., a Stata “do” file or analog in SAS or R). The word
+37       ! document should describe, briefly
+38         a.	How you start the program
+39         b.	How you locate the file Inpatient_Claims_Sample_1 within your program (or perhaps reference this in the code file).
+40         c.	How you run your code
+41         d.	How you view your results
+42         
+43         It is ok if the word file is only 4 sentences! I prefer to err on the side of keeping it simple at this point. We can
+43       ! always go back and add more detail later. This is not a manual.
+44         
+45         The code file should be commented and describe how to do the following
+46         a.	Load the dataset
+47         b.	Describe the variables that exist in the data set (i.e., print out the names of the variables)
+48         c.	Take the mean of CLM_PMT_AMT
+49         d.	Run an OLS regression of CM_PMT_AMT  on CLM_UTLZTN_DAY_CNT and CLM_PASS_THRU_PER_DIEM_AMT (coefficient on
+49       ! CLM_UTLZTN_DAY_CNT  should be about 489 and R-squared should be about 0.11)
+50         e.	Save the output (the coefficient estimates, standard errors, p-values) in a text file or other file that can be opened
+2                                                          The SAS System                            16:25 Tuesday, December 3, 2013
+
+50       !  up easily in Word or Notepad or a browser.
+51         
+52         When you’re ready, send your Word doc and Code file to the group
+53         
+54         WHEN?
+55         
+56         By January 3, 2014
+57         
+58         Ben, Peter, Stephanie: let me know by the end of the week if you’d like to change this plan (I.e., if it seems
+58       ! confusing, useless, or you’re too busy).
+59         
+60         Also, Ben made the following observations, which I agree with – but I thought they might add to the complexity and so I
+60       !  thought we could revisit these at some point in the future, and for now just keep it very very simple.
+61         
+62         COMMENTS FROM BEN
+63         
+64         I think it might actually be instructive to see how to get the data from CSV to a native format for analysis (how
+64       ! easy/hard it is, how much can be automated, how much needs to be programmed). That might be a big enough task just to
+64       ! make it the first “project”.
+65         
+66         We’ll want to put data on the X-drive. Probably a subfolder in the PROJECTS folder called “CodeSharing” or
+66       ! something like that and further organized with the following folders
+67         1.	Data
+68         2.	Task01ImportingData
+69         3.	Task02ComputingUnivariateStats
+70         4.	Task03ModelingOLS
+71         5.	Etc
+72         ==============================================================================*/
+73         title1 "Coding Challenge #1";
+74         
+75         
+76         /*==============================================================================
+77         Set pointer to library where the data is located.
+78         Note: SAS refers to a folder or directory as a "library".
+79         ==============================================================================*/
+80         libname lib "\\ohsum01.ohsu.edu\OHSU\OHSU Shared\Restricted\OCHSER\PROJECTS\Code_Sharing" access=readonly;
+NOTE: Libref LIB was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: \\ohsum01.ohsu.edu\OHSU\OHSU Shared\Restricted\OCHSER\PROJECTS\Code_Sharing
+81         
+82         
+83         /*==============================================================================
+84         Open an HTML file to pipe all output to
+85         Use the HTMLBLUE style instead of the default; it's prettier
+86         ==============================================================================*/
+87         filename fOut "H:\CHSE\ActiveProjects\Sandbox\CodingChallenges\Challenge001\challenge001SAS.html";
+88         ods html file=fOut style=HTMLBLUE;
+NOTE: Writing HTML Body file: FOUT
+89         
+90         
+91         /*==============================================================================
+92         Show the variables in the dataset Inpatient_Claims_Sample_1.sas7bdat.
+93         The "order=varnum" option prints the variable list in the order they appear in the dataset.
+94         Otherwise, the default is to list them alphabetically, which is sometimes less useful.
+95         ==============================================================================*/
+96         title2 "Data dictionary";
+97         proc contents data=lib.Inpatient_Claims_Sample_1 order=varnum;
+98         run;
+3                                                          The SAS System                            16:25 Tuesday, December 3, 2013
+
+
+NOTE: PROCEDURE CONTENTS used (Total process time):
+      real time           0.11 seconds
+      cpu time            0.06 seconds
+      
+
+99         
+100        
+101        /*==============================================================================
+102        Compute the mean of the clm_pmt_amt variable.
+103        ==============================================================================*/
+104        title2 "Summary statsitics for clm_pmt_amt variable";
+105        proc means data=lib.Inpatient_Claims_Sample_1;
+106        	var clm_pmt_amt;
+107        run;
+
+NOTE: There were 66773 observations read from the data set LIB.INPATIENT_CLAIMS_SAMPLE_1.
+NOTE: PROCEDURE MEANS used (Total process time):
+      real time           0.58 seconds
+      cpu time            0.03 seconds
+      
+
+108        
+109        
+110        /*==============================================================================
+111        Fit a least squares regression model with clm_pmt_amt as the dependent variable.
+112        clm_utlztn_day_cnt and clm_pass_thru_per_diem_amt are the independent variables.
+113        Output the model estimates to a dataset.
+114        Use the ods statement to produce an ODS dataset of the parameter estimates
+115        ==============================================================================*/
+116        title2 "Linear regression model";
+117        proc reg data=lib.Inpatient_Claims_Sample_1;
+118        	model clm_pmt_amt = clm_utlztn_day_cnt clm_pass_thru_per_diem_amt;
+119        run;
+
+120        
+121        
+122        /*==============================================================================
+123        Close the HTML file
+124        ==============================================================================*/
+125        ods html close;
+126        
+127        
+128        GOPTIONS NOACCESSIBLE;
+129        %LET _CLIENTTASKLABEL=;
+130        %LET _CLIENTPROJECTPATH=;
+131        %LET _CLIENTPROJECTNAME=;
+132        %LET _SASPROGRAMFILE=;
+133        
+134        ;*';*";*/;quit;
+
+NOTE: PROCEDURE REG used (Total process time):
+      real time           0.43 seconds
+      cpu time            0.10 seconds
+      
+134      !                run;
+
+135        ODS _ALL_ CLOSE;
+4                                                          The SAS System                            16:25 Tuesday, December 3, 2013
+
+136        
+137        
+138        QUIT; RUN;
+139        
