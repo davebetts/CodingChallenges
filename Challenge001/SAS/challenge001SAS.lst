@@ -1,0 +1,182 @@
+                                      Coding Challenge #1                                     25
+                                        Data dictionary         15:42 Thursday, December 5, 2013
+
+                                     The CONTENTS Procedure
+
+Data Set Name        LIB.INPATIENT_CLAIMS_SAMPLE_1                   Observations          66773
+Member Type          DATA                                            Variables             81   
+Engine               V9                                              Indexes               0    
+Created              12/02/2013 13:05:47                             Observation Length    337  
+Last Modified        12/02/2013 13:05:47                             Deleted Observations  0    
+Protection                                                           Compressed            NO   
+Data Set Type                                                        Sorted                NO   
+Label                Inpatient_Claims_Sample_1 dataset written                                  
+                     by Stat/Transfer Ver. 10.1.1866.0714                                       
+                                                                                                
+                                                                                                
+                                                                                                
+                                                                                                
+                                                                                                
+Data Representation  WINDOWS_64                                                                 
+Encoding             wlatin1  Western (Windows)                                                 
+
+
+                               Engine/Host Dependent Information
+
+Data Set Page Size          10240                                                               
+Number of Data Set Pages    2227                                                                
+First Data Page             1                                                                   
+Max Obs per Page            30                                                                  
+Obs in First Data Page      3                                                                   
+Number of Data Set Repairs  0                                                                   
+Filename                    \\ohsum01.ohsu.edu\OHSU\OHSU                                        
+                            Shared\Restricted\OCHSER\PROJECTS\Code_Sharing\                     
+                            inpatient_claims_sample_1.sas7bdat                                  
+Release Created             9.0000M0                                                            
+Host Created                WIN                                                                 
+                                      Coding Challenge #1                                     26
+                                        Data dictionary         15:42 Thursday, December 5, 2013
+
+                                     The CONTENTS Procedure
+
+                                  Variables in Creation Order
+ 
+                       #    Variable                          Type    Len
+
+                       1    DESYNPUF_ID                       Char     16
+                       2    CLM_ID                            Num       8
+                       3    SEGMENT                           Num       3
+                       4    CLM_FROM_DT                       Num       6
+                       5    CLM_THRU_DT                       Num       6
+                       6    PRVDR_NUM                         Char      6
+                       7    CLM_PMT_AMT                       Num       6
+                       8    NCH_PRMRY_PYR_CLM_PD_AMT          Num       6
+                       9    AT_PHYSN_NPI                      Num       8
+                      10    OP_PHYSN_NPI                      Num       8
+                      11    OT_PHYSN_NPI                      Num       8
+                      12    CLM_ADMSN_DT                      Num       6
+                      13    ADMTNG_ICD9_DGNS_CD               Char      5
+                      14    CLM_PASS_THRU_PER_DIEM_AMT        Num       4
+                      15    NCH_BENE_IP_DDCTBL_AMT            Num       4
+                      16    NCH_BENE_PTA_COINSRNC_LBLTY_AM    Num       6
+                      17    NCH_BENE_BLOOD_DDCTBL_LBLTY_AM    Num       4
+                      18    CLM_UTLZTN_DAY_CNT                Num       4
+                      19    NCH_BENE_DSCHRG_DT                Num       6
+                      20    CLM_DRG_CD                        Char      3
+                      21    ICD9_DGNS_CD_1                    Char      5
+                      22    ICD9_DGNS_CD_2                    Char      5
+                      23    ICD9_DGNS_CD_3                    Char      5
+                      24    ICD9_DGNS_CD_4                    Char      5
+                      25    ICD9_DGNS_CD_5                    Char      5
+                      26    ICD9_DGNS_CD_6                    Char      5
+                      27    ICD9_DGNS_CD_7                    Char      5
+                      28    ICD9_DGNS_CD_8                    Char      5
+                      29    ICD9_DGNS_CD_9                    Char      5
+                      30    ICD9_DGNS_CD_10                   Char      5
+                      31    ICD9_PRCDR_CD_1                   Num       4
+                      32    ICD9_PRCDR_CD_2                   Char      5
+                      33    ICD9_PRCDR_CD_3                   Char      5
+                      34    ICD9_PRCDR_CD_4                   Char      5
+                      35    ICD9_PRCDR_CD_5                   Char      5
+                      36    ICD9_PRCDR_CD_6                   Char      5
+                      37    HCPCS_CD_1                        Num       3
+                      38    HCPCS_CD_2                        Num       3
+                      39    HCPCS_CD_3                        Num       3
+                      40    HCPCS_CD_4                        Num       3
+                      41    HCPCS_CD_5                        Num       3
+                      42    HCPCS_CD_6                        Num       3
+                      43    HCPCS_CD_7                        Num       3
+                      44    HCPCS_CD_8                        Num       3
+                      45    HCPCS_CD_9                        Num       3
+                      46    HCPCS_CD_10                       Num       3
+                                      Coding Challenge #1                                     27
+                                        Data dictionary         15:42 Thursday, December 5, 2013
+
+                                     The CONTENTS Procedure
+
+                                  Variables in Creation Order
+ 
+                       #    Variable                          Type    Len
+
+                      47    HCPCS_CD_11                       Num       3
+                      48    HCPCS_CD_12                       Num       3
+                      49    HCPCS_CD_13                       Num       3
+                      50    HCPCS_CD_14                       Num       3
+                      51    HCPCS_CD_15                       Num       3
+                      52    HCPCS_CD_16                       Num       3
+                      53    HCPCS_CD_17                       Num       3
+                      54    HCPCS_CD_18                       Num       3
+                      55    HCPCS_CD_19                       Num       3
+                      56    HCPCS_CD_20                       Num       3
+                      57    HCPCS_CD_21                       Num       3
+                      58    HCPCS_CD_22                       Num       3
+                      59    HCPCS_CD_23                       Num       3
+                      60    HCPCS_CD_24                       Num       3
+                      61    HCPCS_CD_25                       Num       3
+                      62    HCPCS_CD_26                       Num       3
+                      63    HCPCS_CD_27                       Num       3
+                      64    HCPCS_CD_28                       Num       3
+                      65    HCPCS_CD_29                       Num       3
+                      66    HCPCS_CD_30                       Num       3
+                      67    HCPCS_CD_31                       Num       3
+                      68    HCPCS_CD_32                       Num       3
+                      69    HCPCS_CD_33                       Num       3
+                      70    HCPCS_CD_34                       Num       3
+                      71    HCPCS_CD_35                       Num       3
+                      72    HCPCS_CD_36                       Num       3
+                      73    HCPCS_CD_37                       Num       3
+                      74    HCPCS_CD_38                       Num       3
+                      75    HCPCS_CD_39                       Num       3
+                      76    HCPCS_CD_40                       Num       3
+                      77    HCPCS_CD_41                       Num       3
+                      78    HCPCS_CD_42                       Num       3
+                      79    HCPCS_CD_43                       Num       3
+                      80    HCPCS_CD_44                       Num       3
+                      81    HCPCS_CD_45                       Num       3
+                                      Coding Challenge #1                                     28
+                          Summary statsitics for clm_pmt_amt variable
+                                                                15:42 Thursday, December 5, 2013
+
+                                      The MEANS Procedure
+
+                                Analysis Variable : CLM_PMT_AMT 
+ 
+                 N            Mean         Std Dev         Minimum         Maximum
+             ---------------------------------------------------------------------
+             66773         9573.63         9315.07        -8000.00        57000.00
+             ---------------------------------------------------------------------
+                                      Coding Challenge #1                                     29
+                                    Linear regression model     15:42 Thursday, December 5, 2013
+
+                                       The REG Procedure
+                                         Model: MODEL1
+                                Dependent Variable: CLM_PMT_AMT 
+
+                     Number of Observations Read                      66773
+                     Number of Observations Used                      66705
+                     Number of Observations with Missing Values          68
+
+
+                                      Analysis of Variance
+ 
+                                             Sum of           Mean
+         Source                   DF        Squares         Square    F Value    Pr > F
+
+         Model                     2    6.508243E11    3.254122E11    4240.50    <.0001
+         Error                 66702     5.11865E12       76739079                     
+         Corrected Total       66704    5.769474E12                                    
+
+
+                      Root MSE           8760.08442    R-Square     0.1128
+                      Dependent Mean     9564.23776    Adj R-Sq     0.1128
+                      Coeff Var            91.59208                       
+
+
+                                      Parameter Estimates
+ 
+                                           Parameter       Standard
+     Variable                      DF       Estimate          Error    t Value    Pr > |t|
+
+     Intercept                      1     6606.94409       47.27814     139.75      <.0001
+     CLM_UTLZTN_DAY_CNT             1      488.88987        5.39741      90.58      <.0001
+     CLM_PASS_THRU_PER_DIEM_AMT     1        7.86527        0.44871      17.53      <.0001
