@@ -1,5 +1,5 @@
-                                      Coding Challenge #1                                     25
-                                        Data dictionary         15:42 Thursday, December 5, 2013
+                                      Coding Challenge #1     16:13 Friday, December 6, 2013   6
+                                   Exhibit 1: Data dictionary
 
                                      The CONTENTS Procedure
 
@@ -34,8 +34,8 @@ Filename                    \\ohsum01.ohsu.edu\OHSU\OHSU
                             inpatient_claims_sample_1.sas7bdat                                  
 Release Created             9.0000M0                                                            
 Host Created                WIN                                                                 
-                                      Coding Challenge #1                                     26
-                                        Data dictionary         15:42 Thursday, December 5, 2013
+                                      Coding Challenge #1     16:13 Friday, December 6, 2013   7
+                                   Exhibit 1: Data dictionary
 
                                      The CONTENTS Procedure
 
@@ -89,8 +89,8 @@ Host Created                WIN
                       44    HCPCS_CD_8                        Num       3
                       45    HCPCS_CD_9                        Num       3
                       46    HCPCS_CD_10                       Num       3
-                                      Coding Challenge #1                                     27
-                                        Data dictionary         15:42 Thursday, December 5, 2013
+                                      Coding Challenge #1     16:13 Friday, December 6, 2013   8
+                                   Exhibit 1: Data dictionary
 
                                      The CONTENTS Procedure
 
@@ -133,9 +133,8 @@ Host Created                WIN
                       79    HCPCS_CD_43                       Num       3
                       80    HCPCS_CD_44                       Num       3
                       81    HCPCS_CD_45                       Num       3
-                                      Coding Challenge #1                                     28
-                          Summary statsitics for clm_pmt_amt variable
-                                                                15:42 Thursday, December 5, 2013
+                                      Coding Challenge #1     16:13 Friday, December 6, 2013   9
+                     Exhibit 2: Summary statsitics for clm_pmt_amt variable
 
                                       The MEANS Procedure
 
@@ -145,8 +144,8 @@ Host Created                WIN
              ---------------------------------------------------------------------
              66773         9573.63         9315.07        -8000.00        57000.00
              ---------------------------------------------------------------------
-                                      Coding Challenge #1                                     29
-                                    Linear regression model     15:42 Thursday, December 5, 2013
+                                      Coding Challenge #1     16:13 Friday, December 6, 2013  10
+                               Exhibit 3: Linear regression model
 
                                        The REG Procedure
                                          Model: MODEL1

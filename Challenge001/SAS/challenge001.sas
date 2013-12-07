@@ -62,28 +62,26 @@ title1 "Coding Challenge #1";
 /*==============================================================================
 Set pointer to library where the data is located.
 Note: SAS refers to a folder or directory as a "library".
+The "access=readonly" option isn't necessary; but it'll prevent you from accidentally altering a dataset in the library.
 ==============================================================================*/
 libname lib "\\ohsum01.ohsu.edu\OHSU\OHSU Shared\Restricted\OCHSER\PROJECTS\Code_Sharing" access=readonly;
 
 
 /*==============================================================================
-Open an HTML file to pipe all output to
+Open an HTML file to pipe all output to.
 Use the HTMLBLUE style instead of the default; it's prettier
-Turn on ODS graphics, also
 ==============================================================================*/
-filename fHtml "H:\CHSE\ActiveProjects\Sandbox\CodingChallenges\Challenge001\challenge001SAS.html";
+filename fHtml "H:\CHSE\ActiveProjects\Sandbox\CodingChallenges\Challenge001\SAS\challenge001SAS.html";
 ods html file=fHtml style=HTMLBLUE;
-ods graphics on;
 /*==============================================================================
-Also open a text file to pipe all output to
+Also open a text file to pipe all output to.
 Use the SAS listing extension, *.lst
 But this is really a text file that could be open in any text editor (e.g., Notepad, Notepad++, Sublime, etc.)
-The "options" statement makes prevents special characters from being used in the formatting of tables; not needed if outputting only HTML, but nice if outputting to text
+The "options" statement prevents special characters from being used in the formatting of tables; not needed if outputting only HTML, but nice if outputting to text
 ==============================================================================*/
-filename fLst "H:\CHSE\ActiveProjects\Sandbox\CodingChallenges\Challenge001\challenge001SAS.lst";
+filename fLst "H:\CHSE\ActiveProjects\Sandbox\CodingChallenges\Challenge001\SAS\challenge001SAS.lst";
 ods listing file=fLst;
 options formchar="|----|+|---+=|-/\<>*";
-
 
 
 /*==============================================================================
@@ -91,7 +89,7 @@ Show the variables in the dataset Inpatient_Claims_Sample_1.sas7bdat.
 The "order=varnum" option prints the variable list in the order they appear in the dataset.
 Otherwise, the default is to list them alphabetically, which is sometimes less useful.
 ==============================================================================*/
-title2 "Data dictionary";
+title2 "Exhibit 1: Data dictionary";
 proc contents data=lib.Inpatient_Claims_Sample_1 order=varnum;
 run;
 
@@ -99,7 +97,7 @@ run;
 /*==============================================================================
 Compute the mean of the clm_pmt_amt variable.
 ==============================================================================*/
-title2 "Summary statsitics for clm_pmt_amt variable";
+title2 "Exhibit 2: Summary statsitics for clm_pmt_amt variable";
 proc means data=lib.Inpatient_Claims_Sample_1;
 	var clm_pmt_amt;
 run;
@@ -113,7 +111,7 @@ Use the ods statement to produce an ODS dataset of the parameter estimates
 
 For HTML output, PROC REG defaults to produce a residual plot. For large datasets, it defaults to producing a heat map instead of a scatterplot. However, the heat maps are experimental as of SAS 9.4, and 
 ==============================================================================*/
-title2 "Linear regression model";
+title2 "Exhibit 3: Linear regression model";
 proc reg data=lib.Inpatient_Claims_Sample_1;
 	model clm_pmt_amt = clm_utlztn_day_cnt clm_pass_thru_per_diem_amt;
 run;
@@ -121,7 +119,7 @@ quit;
 
 
 /*==============================================================================
-Close the HTML file
+Close the HTML and listing files
 ==============================================================================*/
 ods html close;
 ods listing close;
